@@ -11,7 +11,7 @@ var square = (n, char) => {
     row += char;
   }
   for (var i = 0; i < n; i++) {
-    console.log(i, row);
+    console.log(row);
   }
 }
 square(5, "*");
@@ -94,32 +94,65 @@ console.log("Medio Diamante");
 
 var halfDiamond = (n, char) => {
     var line = "";
-    for(i = 0; i < n; i++) {
+    for(i = 0; i <= n; i++) {
         for (j = 0; j < i; j++) {
             line += char;
-            console.log(line)
         }
-        
+        console.log(line)
+        line = "";
     }
     for(i = n - 1; i > 0; i--) {
         for (j = 0; j < i; j++) {
-            
+            line += char;
         }
-        
+        console.log(line)
+        line = "";
     }
-    
 }
 halfDiamond(7, "*")
 
 
 // Pirámide
 console.log("Pirámide");
-var pyramid = (n, char) => { 
-    var line = "";
-    var space = " ";
-    for(i = 0; i < n; i++) {
 
+function pyramid(n, char) {
+    for(i = 1; i <= n; i++) {
+        var file = "";
+        for(j = 1; j <= n - i; j++) {
+            file += " ";
+            }
+        for(k = 1; k <= 2 * i - 1; k++) {
+            file += char;
+        }
+        console.log(file);
+    }
+  }
+
+pyramid(5, "*");
+
+// Diamante
+console.log("Diamante");
+function diamond(n, char) {
+    for(i = 1; i <= n; i++) {
+        var file = "";
+        for(j = 1; j <= n - i; j++) {
+            file += " ";
+            }
+        for(k = 1; k <= (2 * i) - 1; k++) {
+            file += char;
+            }
+        console.log(file);
+    }
+    for(i = n-1; i >= 1; i--) {
+        var file = "";
+        for (j = n - i; j >= 1; j--) {
+            file += " ";
+        }
+        for (k = 1; k <= (2 * i) - 1; k++) {
+            file += char;
+            }
+        console.log(file);
     }
 }
 
-
+diamond(8, "*");
